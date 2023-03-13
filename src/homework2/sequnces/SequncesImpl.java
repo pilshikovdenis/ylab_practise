@@ -22,12 +22,8 @@ public class SequncesImpl implements SequenceGenerator {
 
     @Override
     public void c(int n) {
-        int increase = 3;
-        int number = 1;
-        for (int i = 0; i < n; i++) {
-            System.out.printf("%d ", number);
-            number += increase;
-            increase += 2;
+        for (int i = 1; i <= n; i++) {
+            System.out.printf("%d ", i * i);
         }
     }
 
