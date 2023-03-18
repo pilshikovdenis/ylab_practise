@@ -1,4 +1,4 @@
-package homework3.transliterator.dated_map;
+package homework3.dated_map;
 
 
 
