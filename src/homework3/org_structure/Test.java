@@ -8,7 +8,7 @@ public class Test {
         // для удобного тестирования не были удалены Employee.ToString() и OrgStructureParserImpl.printEmployees()
 
         OrgStructureParser parser = new OrgStructureParserImpl();
-        File file = new File("src/homework3/org_structure/data.txt");
+        File file = new File("src/homework3/org_structure/data.csv");
         try {
             Employee boss = parser.parseStructure(file);
             System.out.println(boss);
