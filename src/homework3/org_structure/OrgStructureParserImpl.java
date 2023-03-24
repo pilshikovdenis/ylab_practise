@@ -25,8 +25,12 @@ public class OrgStructureParserImpl implements OrgStructureParser {
             while (scanner.hasNextLine()) {
                 // парсим строку, создаем объект и сохраняем его
                 String data = scanner.nextLine();
+
                 Employee newEmployee = parseEmployeeFromString(data);
-                employeeMap.put(newEmployee.getId(), newEmployee);
+                if (newEmployee != null) {
+                    employeeMap.put(newEmployee.getId(), newEmployee);
+                }
+
             }
         } catch (IOException e) {
             return null;
@@ -47,9 +51,10 @@ public class OrgStructureParserImpl implements OrgStructureParser {
     public Employee parseEmployeeFromString(String data) throws IncorrectStringToParseException {
         // разрезаем строку
         String[] parsedFields = data.split(";");
-
+        // даже если boss_id не будет задан, все равно корректная строка будет содержать 4 поля
+        // в противном случае
         if (parsedFields.length != 4) {
-            throw new IncorrectStringToParseException("String " + data + " is not correct to parse from them");
+            throw new IncorrectStringToParseException("Невозможно прочитать все поля из строки " + data);
         }
         Employee employee = new Employee();
         employee.setId(Long.valueOf(parsedFields[0]));
