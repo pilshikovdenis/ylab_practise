@@ -4,9 +4,9 @@ import java.io.*;
 import java.util.*;
 
 public class Sorter {
-    private final int blockSize = 15_000_000;
+    private final int blockSize = 15_000_000;// количество строк в файле
     private final String resultFilePath = "final.txt";
-    private final int bufferSize = 100_000;
+    private final int bufferSize = 100_000;// размер временного буфера для каждого файла
     public File sortFile(File dataFile) throws IOException {
 
         System.out.println("Начало нарезки на блоки: " + new Date());
@@ -52,7 +52,7 @@ public class Sorter {
     }
 
     // выводим содержимое кажого буфера
-    private static void printAllBuffers(HashMap<String, ArrayDeque<Long>> buffersMap ) {
+    private  void printAllBuffers(HashMap<String, ArrayDeque<Long>> buffersMap ) {
         for (ArrayDeque<Long> e: buffersMap.values()) {
             System.out.println("B: " + e);
         }
@@ -62,7 +62,7 @@ public class Sorter {
 
     // Метод загружает по stringsCount строк из файла file, сортирует их и пишет в отдельный файл
     // Все файлы сохраняются в output/, каждый с отдельным префиксом
-    private static void cropFile(File file, int stringsCount) {
+    private  void cropFile(File file, int stringsCount) {
         // если каталога для вывовода файлов не существует, создаем его
         new File("output").mkdir();
 
@@ -83,7 +83,7 @@ public class Sorter {
         }
     }
 
-    private static void writeArrayToFile(String filePath, ArrayList<Long> buffer) throws FileNotFoundException {
+    private void writeArrayToFile(String filePath, ArrayList<Long> buffer) throws FileNotFoundException {
         try(PrintWriter pw = new PrintWriter(filePath)) {
             for (long e : buffer) {
                 pw.println(e);
@@ -95,7 +95,7 @@ public class Sorter {
 
     // Метод ищет все файлы в директории output/ с префиксом out
     // Для каждого файла создается создается буфер, открывается поток ввода и сохраняется ссылка на них
-    public static void initializeInputStreamsAndBuffers(HashMap<String, Scanner> inputStreamsMap,
+    public void initializeInputStreamsAndBuffers(HashMap<String, Scanner> inputStreamsMap,
                                                         HashMap<String, ArrayDeque<Long>> buffersMap) {
 
         int fileIndex = 1;
@@ -117,7 +117,7 @@ public class Sorter {
 
     // Метод  находит буфер по ключу key, в коллекции buffersMap и заполняет его если есть чем.
     // В противном случае удаляет его
-    public static void loadDataToBuffer(HashMap<String, ArrayDeque<Long>> buffersMap, HashMap<String,
+    public void loadDataToBuffer(HashMap<String, ArrayDeque<Long>> buffersMap, HashMap<String,
             Scanner> inputStreamsMap, String bufferKey, int bufferSize) {
         Scanner inputScanner = inputStreamsMap.get(bufferKey);
         // Если загружать больше нечего, закрываем поток ввода и удаляем его, удаляем буфер для этого файла
@@ -137,8 +137,7 @@ public class Sorter {
 
     // поиск минимального значения в буферах (по первым элементам)
     // возвращает ключ буфера с минимальным элементом
-    public static String findMinValueInBuffer(HashMap<String, ArrayDeque<Long>> map) {
-
+    private String findMinValueInBuffer(HashMap<String, ArrayDeque<Long>> map) {
         // Сохраняем ключ самого первого буфера
         String key = null;
         for (String s : map.keySet()) {
