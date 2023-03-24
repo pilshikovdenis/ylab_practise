@@ -95,7 +95,7 @@ public class Sorter {
 
     // Метод ищет все файлы в директории output/ с префиксом out
     // Для каждого файла создается создается буфер, открывается поток ввода и сохраняется ссылка на них
-    public void initializeInputStreamsAndBuffers(HashMap<String, Scanner> inputStreamsMap,
+    private void initializeInputStreamsAndBuffers(HashMap<String, Scanner> inputStreamsMap,
                                                         HashMap<String, ArrayDeque<Long>> buffersMap) {
 
         int fileIndex = 1;
@@ -117,7 +117,7 @@ public class Sorter {
 
     // Метод  находит буфер по ключу key, в коллекции buffersMap и заполняет его если есть чем.
     // В противном случае удаляет его
-    public void loadDataToBuffer(HashMap<String, ArrayDeque<Long>> buffersMap, HashMap<String,
+    private void loadDataToBuffer(HashMap<String, ArrayDeque<Long>> buffersMap, HashMap<String,
             Scanner> inputStreamsMap, String bufferKey, int bufferSize) {
         Scanner inputScanner = inputStreamsMap.get(bufferKey);
         // Если загружать больше нечего, закрываем поток ввода и удаляем его, удаляем буфер для этого файла
