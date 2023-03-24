@@ -1,5 +1,6 @@
 package homework3.transliterator;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,44 +8,41 @@ public class TransliteratorImpl implements Transliterator{
     private Map<String, String> dictionary;
     public TransliteratorImpl() {
         dictionary = new HashMap<>();
-        dictionary.put("А", "A");
-        dictionary.put("Б", "B");
-        dictionary.put("В", "V");
-        dictionary.put("Г", "G");
-        dictionary.put("Д", "D");
-
-        dictionary.put("Е", "E");
-        dictionary.put("Ё", "E");
-        dictionary.put("Ж", "ZH");
-        dictionary.put("З", "Z");
-        dictionary.put("И", "I");
-        dictionary.put("Й", "I");
-
-        dictionary.put("К", "K");
-        dictionary.put("Л", "L");
-        dictionary.put("М", "M");
-        dictionary.put("Н", "N");
-        dictionary.put("О", "O");
-        dictionary.put("П", "P");
-
-        dictionary.put("Р", "R");
-        dictionary.put("С", "S");
-        dictionary.put("Т", "T");
-        dictionary.put("У", "U");
-        dictionary.put("Ф", "F");
-
-        dictionary.put("Х", "KH");
-        dictionary.put("Ц", "TS");
-        dictionary.put("Ч", "CH");
-        dictionary.put("Ш", "SH");
-        dictionary.put("Щ", "SHCH");
-        dictionary.put("Ы", "Y");
-
-        dictionary.put("Ь", "");
-        dictionary.put("Ъ", "IE");
-        dictionary.put("Э", "E");
-        dictionary.put("Ю", "IU");
-        dictionary.put("Я", "IA");
+        dictionary = Collections.unmodifiableMap(new HashMap<String, String>() {{
+            put("А", "A");
+            put("Б", "B");
+            put("В", "V");
+            put("Г", "G");
+            put("Д", "D");
+            put("Е", "E");
+            put("Ё", "E");
+            put("Ж", "ZH");
+            put("З", "Z");
+            put("И", "I");
+            put("Й", "I");
+            put("К", "K");
+            put("Л", "L");
+            put("М", "M");
+            put("Н", "N");
+            put("О", "O");
+            put("П", "P");
+            put("Р", "R");
+            put("С", "S");
+            put("Т", "T");
+            put("У", "U");
+            put("Ф", "F");
+            put("Х", "KH");
+            put("Ц", "TS");
+            put("Ч", "CH");
+            put("Ш", "SH");
+            put("Щ", "SHCH");
+            put("Ы", "Y");
+            put("Ь", "");
+            put("Ъ", "IE");
+            put("Э", "E");
+            put("Ю", "IU");
+            put("Я", "IA");
+        }});
 
     }
     @Override
