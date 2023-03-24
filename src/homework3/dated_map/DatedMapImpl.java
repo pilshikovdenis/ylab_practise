@@ -9,38 +9,38 @@ public class DatedMapImpl implements DatedMap{
     Map<String, String> mainMap;
     Map<String, Date> dateMap;
     public DatedMapImpl() {
-        mainMap = new HashMap<>();
-        dateMap = new HashMap<>();
+        this.mainMap = new HashMap<>();
+        this.dateMap = new HashMap<>();
     }
     @Override
     public void put(String key, String value) {
-        mainMap.put(key, value);
-        dateMap.put(key, new Date());
+        this.mainMap.put(key, value);
+        this.dateMap.put(key, new Date());
     }
 
     @Override
     public String get(String key) {
-        return mainMap.getOrDefault(key, null);
+        return this.mainMap.getOrDefault(key, null);
     }
 
     @Override
     public boolean containsKey(String key) {
-        return mainMap.containsKey(key);
+        return this.mainMap.containsKey(key);
     }
 
     @Override
     public void remove(String key) {
-        mainMap.remove(key);
-        dateMap.remove(key);
+        this.mainMap.remove(key);
+        this.dateMap.remove(key);
     }
 
     @Override
     public Set<String> keySet() {
-        return mainMap.keySet();
+        return this.mainMap.keySet();
     }
 
     @Override
     public Date getKeyLastInsertionDate(String key) {
-        return dateMap.getOrDefault(key, null);
+        return this.dateMap.getOrDefault(key, null);
     }
 }
