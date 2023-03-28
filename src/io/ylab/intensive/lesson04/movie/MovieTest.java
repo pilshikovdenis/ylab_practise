@@ -1,10 +1,10 @@
 package io.ylab.intensive.lesson04.movie;
 
+import io.ylab.intensive.lesson04.DbUtil;
+
+import javax.sql.DataSource;
 import java.io.File;
 import java.sql.SQLException;
-import javax.sql.DataSource;
-
-import io.ylab.intensive.lesson04.DbUtil;
 
 public class MovieTest {
   public static void main(String[] args) throws SQLException {
@@ -15,8 +15,14 @@ public class MovieTest {
     movieLoader.loadData(dataFile);
 
     /**
-     * Тут написать в комментариях запрос получения всех 
+     * Тут написать в комментариях запрос получения всех
+     *
+     * select subject, count(*)
+     * from movie
+     * group by subject;
      */
+
+
   }
 
   private static DataSource initDb() throws SQLException {

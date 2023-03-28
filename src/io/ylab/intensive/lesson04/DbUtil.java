@@ -26,6 +26,7 @@ public class DbUtil {
     dataSource.setServerName("localhost");
     dataSource.setUser("postgres");
     dataSource.setPassword("postgres");
+//    dataSource.setPassword("admin");
     dataSource.setDatabaseName("postgres");
     dataSource.setPortNumber(5432);
     dataSource.getConnection().close();
