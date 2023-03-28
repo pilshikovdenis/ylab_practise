@@ -1,11 +1,10 @@
 package io.ylab.intensive.lesson04.filesort;
 
+import io.ylab.intensive.lesson04.DbUtil;
+
+import javax.sql.DataSource;
 import java.io.File;
 import java.sql.SQLException;
-import javax.sql.DataSource;
-import javax.xml.crypto.Data;
-
-import io.ylab.intensive.lesson04.DbUtil;
 
 public class FileSorterTest {
   public static void main(String[] args) throws SQLException {
