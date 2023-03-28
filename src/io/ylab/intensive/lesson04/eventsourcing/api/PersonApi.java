@@ -1,8 +1,8 @@
 package io.ylab.intensive.lesson04.eventsourcing.api;
 
-import java.util.List;
-
 import io.ylab.intensive.lesson04.eventsourcing.Person;
+
+import java.util.List;
 
 public interface PersonApi {
   void deletePerson(Long personId);
